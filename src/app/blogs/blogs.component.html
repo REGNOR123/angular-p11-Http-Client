@@ -1,0 +1,55 @@
+<h3>All Informations</h3>
+<div>
+  <h4>User Details</h4>
+  <table>
+    <thead>
+      <th>User Id</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Age</th>
+    </thead>
+    <tbody>
+        <!-- STEP -5 : Using the varibles to transfer the data on to the frontend -->
+      <tr *ngFor="let user of userList">   
+        <td>{{ user.id }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.age }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div>
+  <h4>Posts Details</h4>
+  <table>
+    <thead>
+      <th>Post Id</th>
+      <th>Title</th>
+      <th>User Id</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let post of postsList">
+        <td>{{ post.id }}</td>
+        <td>{{ post.title }}</td>
+        <td>{{ post.userId }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div>
+  <h4>Comments Details</h4>
+  <table>
+    <thead>
+      <th>Comment Id</th>
+      <th>Comment</th>
+      <th>Post Id</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let comment of commentsList">
+        <td>{{ comment.id }}</td>
+        <td>{{ comment.body }}</td>
+        <td>{{ comment.postId }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

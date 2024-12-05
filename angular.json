@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "angular-p11-Http-Client"
+    }
+  },
+  "defaultProject": "angular-p11-Http-Client",
+  "cli": {
+    "analytics": false
+  }
 }

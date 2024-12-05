@@ -1,0 +1,59 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "email": "johndoe@example.com",
+      "age": 30
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "email": "janesmith@example.com",
+      "age": 25
+    },
+    {
+      "id": 3,
+      "name": "Mike Johnson",
+      "email": "mikej@example.com",
+      "age": 40
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "title": "Introduction to JSON Server",
+      "body": "JSON Server is a simple and powerful tool for mocking APIs.",
+      "userId": 1
+    },
+    {
+      "id": 2,
+      "title": "Angular and HttpClient",
+      "body": "Learn how to use Angular HttpClient to interact with APIs.",
+      "userId": 2
+    },
+    {
+      "id": 3,
+      "title": "Understanding RxJS Observables",
+      "body": "Observables are a core part of RxJS. Let's dive into them!",
+      "userId": 3
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "postId": 1,
+      "body": "Great article! Thanks for sharing."
+    },
+    {
+      "id": 2,
+      "postId": 1,
+      "body": "Very helpful. Keep up the good work!"
+    },
+    {
+      "id": 3,
+      "postId": 2,
+      "body": "Angular HttpClient is amazing."
+    }
+  ]
+}
