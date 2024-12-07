@@ -1,22 +1,22 @@
 {
   "users": [
     {
-      "id": 1,
-      "name": "John Doe",
-      "email": "johndoe@example.com",
-      "age": 30
+      "name": "Ruma",
+      "email": "ruma@gmail.com",
+      "password": "ruma123#",
+      "id": 1
     },
     {
-      "id": 2,
-      "name": "Jane Smith",
-      "email": "janesmith@example.com",
-      "age": 25
+      "name": "Amit Kumar",
+      "email": "amit@gmail.com",
+      "password": "amit123@#",
+      "id": 2
     },
     {
-      "id": 3,
-      "name": "Mike Johnson",
-      "email": "mikej@example.com",
-      "age": 40
+      "name": "Raja",
+      "email": "raja@gmail.com",
+      "password": "1234@#",
+      "id": 3
     }
   ],
   "posts": [

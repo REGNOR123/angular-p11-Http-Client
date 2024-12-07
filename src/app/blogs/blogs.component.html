@@ -1,55 +1,65 @@
-<h3>All Informations</h3>
-<div>
-  <h4>User Details</h4>
-  <table>
-    <thead>
-      <th>User Id</th>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Age</th>
-    </thead>
-    <tbody>
+<div class="container">
+  <h1>Home</h1>
+  <div>
+    <h4>User Details</h4>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">User Id</th>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">password</th>
+        </tr>
+      </thead>
+      <tbody>
         <!-- STEP -5 : Using the varibles to transfer the data on to the frontend -->
-      <tr *ngFor="let user of userList">   
-        <td>{{ user.id }}</td>
-        <td>{{ user.name }}</td>
-        <td>{{ user.email }}</td>
-        <td>{{ user.age }}</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-<div>
-  <h4>Posts Details</h4>
-  <table>
-    <thead>
-      <th>Post Id</th>
-      <th>Title</th>
-      <th>User Id</th>
-    </thead>
-    <tbody>
-      <tr *ngFor="let post of postsList">
-        <td>{{ post.id }}</td>
-        <td>{{ post.title }}</td>
-        <td>{{ post.userId }}</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-<div>
-  <h4>Comments Details</h4>
-  <table>
-    <thead>
-      <th>Comment Id</th>
-      <th>Comment</th>
-      <th>Post Id</th>
-    </thead>
-    <tbody>
-      <tr *ngFor="let comment of commentsList">
-        <td>{{ comment.id }}</td>
-        <td>{{ comment.body }}</td>
-        <td>{{ comment.postId }}</td>
-      </tr>
-    </tbody>
-  </table>
+        <tr *ngFor="let user of userList">
+          <th scope="row">{{ user.id }}</th>
+          <td>{{ user.name }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.password }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div>
+    <h4>Posts Details</h4>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Post Id</th>
+          <th scope="col">Title</th>
+          <th scope="col">User Id</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let post of postsList">
+          <th scope="row">{{ post.id }}</th>
+          <td>{{ post.title }}</td>
+          <td>{{ post.userId }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div>
+    <h4>Comments Details</h4>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Comment Id</th>
+          <th scope="col">Comment</th>
+          <th scope="col">Post Id</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let comment of commentsList">
+          <th scope="row">{{ comment.id }}</th>
+          <td>{{ comment.body }}</td>
+          <td>{{ comment.postId }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
