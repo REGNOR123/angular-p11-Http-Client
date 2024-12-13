@@ -36,6 +36,7 @@ export class SignupUserComponent implements OnInit {
     this.blogService.createUsers(requestBody).subscribe((data)=>{    // Finally, we are passing the data into the request body, which further will be passed into services and there it will meet with post method
       console.log(data);
       
-    })
+    });
+    
   }
 }

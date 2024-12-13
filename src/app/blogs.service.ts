@@ -12,25 +12,36 @@ export class BlogsService {
   // STEP-2.3 : Define the methods to get response through http-methods
   getUsers() {
     const httpHeaders = new HttpHeaders();
-    httpHeaders.append('content-type','application/json');
+    httpHeaders.append('content-type', 'application/json');
     return this.httpClient.get('http://localhost:3000/users');
   }
   getPosts() {
     const httpHeaders = new HttpHeaders();
-    httpHeaders.append('content-type','application/json');
+    httpHeaders.append('content-type', 'application/json');
     return this.httpClient.get('http://localhost:3000/posts');
   }
   getComments() {
     const httpHeaders = new HttpHeaders();
-    httpHeaders.append('content-type','application/json');
+    httpHeaders.append('content-type', 'application/json');
     return this.httpClient.get('http://localhost:3000/comments');
   }
 
-// STEP-2.4 : Define the methods to send request through http-methods
+  // STEP-2.4 : Define the methods to send request through http-methods
   createUsers(userBody) {
-    const httpHeaders = new HttpHeaders();   // Create Header object to accept the headers in the POST request.
-    httpHeaders.append('content-type','application/json');
-    return this.httpClient.post('http://localhost:3000/users', userBody, {headers: httpHeaders});
-    
+    const httpHeaders = new HttpHeaders(); // Create Header object to accept the headers in the POST request.
+    httpHeaders.append('content-type', 'application/json');
+    return this.httpClient.post('http://localhost:3000/users', userBody, {
+      headers: httpHeaders,
+    });
+  }
+
+  // STEP-2.5 : Define the methods to send UPDATE request through http-methods
+  updateUsers(userBody, userId) {
+    const httpHeaders = new HttpHeaders(); // Create Header object to accept the headers in the POST request.
+    httpHeaders.append('content-type', 'application/json');
+    return this.httpClient.put(
+      `http://localhost:3000/users/${userId}`,  // created endpoint with id
+      userBody
+    );
   }
 }

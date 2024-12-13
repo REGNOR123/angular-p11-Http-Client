@@ -1,22 +1,22 @@
 {
   "users": [
     {
+      "id": 1,
       "name": "Ruma",
-      "email": "ruma@gmail.com",
-      "password": "ruma123#",
-      "id": 1
+      "email": "Ruma@gmail.com",
+      "password": "ruma123#"
     },
     {
+      "id": 2,
       "name": "Amit Kumar",
-      "email": "amit@gmail.com",
-      "password": "amit123@#",
-      "id": 2
+      "email": "Amit@gmail.com",
+      "password": "amit123@#"
     },
     {
+      "id": 3,
       "name": "Raja",
-      "email": "raja@gmail.com",
-      "password": "1234@#",
-      "id": 3
+      "email": "Raja@gmail.com",
+      "password": "1234@#"
     }
   ],
   "posts": [

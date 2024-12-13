@@ -7,12 +7,14 @@ import { HttpClientModule } from '@angular/common/http'; // STEP-1 Import the Ht
 import { BlogsComponent } from './blogs/blogs.component';
 import { SignupUserComponent } from './signup-user/signup-user.component';   
 import { ReactiveFormsModule } from '@angular/forms';
+import { UpdateUserComponent } from './update-user/update-user.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BlogsComponent,
     SignupUserComponent,
+    UpdateUserComponent,
   ],
   imports: [
     BrowserModule,
