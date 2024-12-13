@@ -40,8 +40,19 @@ export class BlogsService {
     const httpHeaders = new HttpHeaders(); // Create Header object to accept the headers in the POST request.
     httpHeaders.append('content-type', 'application/json');
     return this.httpClient.put(
-      `http://localhost:3000/users/${userId}`,  // created endpoint with id
-      userBody
+      `http://localhost:3000/users/${userId}`, // created endpoint with id
+      userBody,
+      { headers: httpHeaders }
+    );
+  }
+
+  // STEP-2.6 : Define the methods to send Delete request through http-methods
+  removeUsers(userId) {
+    // Create Header object to accept the headers in the POST request.
+    const httpHeaders = new HttpHeaders(); // Create Header object to accept the headers in the POST request.
+
+    return this.httpClient.delete(
+      `http://localhost:3000/users/${userId}`,{ headers: httpHeaders } // created endpoint with id
     );
   }
 }

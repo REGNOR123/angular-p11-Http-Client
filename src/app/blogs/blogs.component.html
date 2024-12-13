@@ -19,15 +19,21 @@
           <td>{{ user.name }}</td>
           <td>{{ user.email }}</td>
           <td>{{ user.password }}</td>
-          <td>   <!-- Onclick redirecting to the update component also bringing the id of the row data-->
+          <td>
+            <!-- Onclick redirecting to the update component also bringing the id of the row data-->
             <button
               type="button"
               class="btn btn-outline-secondary btn-sm"
-              [routerLink]="['/update', user.id]"  
+              [routerLink]="['/update', user.id]"
             >
               Update
             </button>
-            <button type="button" class="btn btn-outline-danger btn-sm">
+            <button
+              type="button"
+              class="btn btn-outline-danger btn-sm"
+              (click)="handleDelete(user.id)"
+            >
+              <!-- Passing user.id as argument to get user id of record-->>
               Delete
             </button>
           </td>
