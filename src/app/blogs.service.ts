@@ -11,9 +11,13 @@ export class BlogsService {
 
   // STEP-2.3 : Define the methods to get response through http-methods
   getUsers() {
-    const httpHeaders = new HttpHeaders();
-    httpHeaders.append('content-type', 'application/json');
-    return this.httpClient.get('http://localhost:3000/users');
+    const httpHeaders = new HttpHeaders({    // creating the headers
+      'content-type': 'application/json',
+      'authorization' : 'dvlbnkjnh25843685745217sdcknivkfv215h74bg851786',
+      'user-role' : 'admin'   // creating custom headers
+    });
+    // httpHeaders.append('content-type', 'application/json');
+    return this.httpClient.get('http://localhost:3000/users', {headers: httpHeaders}); // passing headerd, will show in network call
   }
   getPosts() {
     const httpHeaders = new HttpHeaders();
