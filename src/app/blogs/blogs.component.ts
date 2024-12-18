@@ -21,20 +21,15 @@ export class BlogsComponent implements OnInit {
       this.userList = data;
       console.log(data);
     });
-    this.blogService.getPosts().subscribe((data) => {
-      this.postsList = data;
-      console.log(data);
-    });
-    this.blogService.getComments().subscribe((data) => {
-      this.commentsList = data;
-      console.log(data);
-    });
   }
 
-  handleDelete(userId) {   // once delete button hitted this method triggered which takes user id as an argument
+  handleDelete(userId) {
+    // once delete button hitted this method triggered which takes user id as an argument
 
-    if (confirm('Are you sure') == true) {         // if user confirm "ok"
-      this.blogService.removeUsers(userId).subscribe((data) => {   // delete api endpoint will be triggerd and delete the record
+    if (confirm('Are you sure') == true) {
+      // if user confirm "ok"
+      this.blogService.removeUsers(userId).subscribe((data) => {
+        // delete api endpoint will be triggerd and delete the record
         console.log('User updated successfully:', data);
       });
     }

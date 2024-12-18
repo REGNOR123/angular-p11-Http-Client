@@ -27,7 +27,7 @@ export class SignupUserComponent implements OnInit {
     console.log(this.signUpForm);
 
     const requestBody = {   // creating a boject which will stored all the data send by reactive form
-      name: this.signUpForm.value.userName,
+      username: this.signUpForm.value.userName,
       email: this.signUpForm.value.userEmail,
       password: this.signUpForm.value.userPassword,
     };

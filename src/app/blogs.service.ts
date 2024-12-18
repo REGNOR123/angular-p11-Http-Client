@@ -11,30 +11,18 @@ export class BlogsService {
 
   // STEP-2.3 : Define the methods to get response through http-methods
   getUsers() {
-    const httpHeaders = new HttpHeaders({    // creating the headers
-      'content-type': 'application/json',
-      'authorization' : 'dvlbnkjnh25843685745217sdcknivkfv215h74bg851786',
-      'user-role' : 'admin'   // creating custom headers
+    const httpHeaders = new HttpHeaders({
+      'Content-type': 'application/json',
     });
-    // httpHeaders.append('content-type', 'application/json');
-    return this.httpClient.get('http://localhost:3000/users', {headers: httpHeaders}); // passing headerd, will show in network call
+    return this.httpClient.get('http://localhost:3000/api/users', {
+      headers: httpHeaders,
+    }); // passing headerd, will show in network call
   }
-  getPosts() {
-    const httpHeaders = new HttpHeaders();
-    httpHeaders.append('content-type', 'application/json');
-    return this.httpClient.get('http://localhost:3000/posts');
-  }
-  getComments() {
-    const httpHeaders = new HttpHeaders();
-    httpHeaders.append('content-type', 'application/json');
-    return this.httpClient.get('http://localhost:3000/comments');
-  }
-
   // STEP-2.4 : Define the methods to send request through http-methods
   createUsers(userBody) {
     const httpHeaders = new HttpHeaders(); // Create Header object to accept the headers in the POST request.
-    httpHeaders.append('content-type', 'application/json');
-    return this.httpClient.post('http://localhost:3000/users', userBody, {
+    httpHeaders.append('Content-type', 'application/json');
+    return this.httpClient.post('http://localhost:3000/api/users', userBody, {
       headers: httpHeaders,
     });
   }
@@ -42,9 +30,9 @@ export class BlogsService {
   // STEP-2.5 : Define the methods to send UPDATE request through http-methods
   updateUsers(userBody, userId) {
     const httpHeaders = new HttpHeaders(); // Create Header object to accept the headers in the POST request.
-    httpHeaders.append('content-type', 'application/json');
+    httpHeaders.append('Content-type', 'application/json');
     return this.httpClient.put(
-      `http://localhost:3000/users/${userId}`, // created endpoint with id
+      `http://localhost:3000/api/users/${userId}`, // created endpoint with id
       userBody,
       { headers: httpHeaders }
     );
@@ -56,7 +44,8 @@ export class BlogsService {
     const httpHeaders = new HttpHeaders(); // Create Header object to accept the headers in the POST request.
 
     return this.httpClient.delete(
-      `http://localhost:3000/users/${userId}`,{ headers: httpHeaders } // created endpoint with id
+      `http://localhost:3000/api/users/${userId}`,
+      { headers: httpHeaders } // created endpoint with id
     );
   }
 }

@@ -31,14 +31,14 @@ export class UpdateUserComponent implements OnInit {
     this.userId = this.route.snapshot.paramMap.get('id');    // getting the id of the content when redirecting 
 
     this.blogService.getUsers().subscribe((data) => { // filtering the user data on the basis of user id
-      this.userList = data[this.userId - 1];
-      console.log(this.userId - 1);
+      this.userList = data[this.userId-1];
+      console.log(this.userId);
       console.log(this.userList);
 
       // Populate the form fields with the fetched data
       if (this.userList) {
         this.updateForm.patchValue({ // puting the filterd value back into the form fields
-          userName: this.userList.name,
+          userName: this.userList.username,
           userEmail: this.userList.email,
           userPassword: this.userList.password,
         });
@@ -56,7 +56,7 @@ export class UpdateUserComponent implements OnInit {
     // Creating the request body
     const requestBody = {     // creating the request body having updated fields value
       id: this.userId,
-      name: this.updateForm.value.userName,
+      username: this.updateForm.value.userName,
       email: this.updateForm.value.userEmail,
       password: this.updateForm.value.userPassword,
     };
