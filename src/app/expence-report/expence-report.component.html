@@ -1,0 +1,45 @@
+<div class="container">
+    <h1>Leaderboard</h1>
+     <!-- Export Button -->
+     <button class="btn btn-outline-primary" (click)="exportUserReport()">Export</button>
+    <div>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">User Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th>Update</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- STEP -5 : Using the varibles to transfer the data on to the frontend -->
+          <tr *ngFor="let user of userList">
+            <th scope="row">{{ user.id }}</th>
+            <td>{{ user.username }}</td>
+            <td>{{ user.email }}</td>
+            <td>
+              <!-- Onclick redirecting to the update component also bringing the id of the row data-->
+              <button
+                type="button"
+                class="btn btn-outline-secondary btn-sm"
+                [routerLink]="['/dashboard/update', user.id]"
+              >
+                Update
+              </button>
+              <button
+                type="button"
+                class="btn btn-outline-danger btn-sm"
+                (click)="handleDelete(user.id)"
+              >
+                <!-- Passing user.id as argument to get user id of record-->
+                Delete
+              </button>
+            </td>
+          </tr>
+        </tbody>
+        
+      </table>
+    </div>
+  </div>
+  

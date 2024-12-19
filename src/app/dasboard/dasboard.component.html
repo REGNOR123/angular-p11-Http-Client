@@ -1,0 +1,123 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>USER MANAGEMENT</title>
+  </head>
+  <body class="d-flex flex-column">
+    <div class="container mt-4 mb-4">
+      <!-- Application Header -->
+      <div>
+        <header class="mb-4">
+          <h1 class="text-center">USER MANAGEMENT</h1>
+        </header>
+
+        <!-- Navigation Bar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+          <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <!-- Navigation Links -->
+              <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                  <a
+                    class="nav-link active"
+                    aria-current="page"
+                    href="/dashboard/leadreboard"
+                    >Leaderboard</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link active"
+                    aria-current="page"
+                    href="/dashboard/expense"
+                    >Expense</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/dashboard/home">About</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/dashboard/home">Contacts</a>
+                </li>
+              </ul>
+
+              <!-- Right-Aligned Buttons -->
+              <div class="d-flex">
+                <a
+                  class="btn btn-outline-danger btn-sm"
+                  [routerLink]="['/login']"
+                  (click)="handleLogout()"
+                  >Logout</a
+                >
+                <a
+                  href="/dashboard/home"
+                  class="btn btn-outline-secondary btn-sm"
+                  >Subscription</a
+                >
+              </div>
+            </div>
+          </div>
+        </nav>
+        <div class="container">
+          <!-- Display welcome message when showWelcomeMessage is true -->
+          <div *ngIf="showWelcomeMessage" class="alert alert-info">
+            <h1>Dear {{ username }}...</h1>
+            <p>Welcome to the Dashboard! We are glad to have you here.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <main>
+        <router-outlet></router-outlet>
+      </main>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="footer bg-light text-center text-lg-start mt-4 ">
+      <div class="container p-4">
+        <div class="row">
+          <!-- About Section -->
+          <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+            <h5 class="text-uppercase">About</h5>
+            <p>
+              This is a CRUD application designed to help users manage their
+              data effectively. Learn more about our features and services!
+            </p>
+          </div>
+
+          <!-- Links Section -->
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+            <h5 class="text-uppercase">Quick Links</h5>
+            <ul class="list-unstyled">
+              <li><a href="/home" class="text-dark">Home</a></li>
+              <li><a href="/signup" class="text-dark">Sign Up</a></li>
+              <li>
+                <a href="/subscription" class="text-dark">Subscription</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Contact Section -->
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+            <h5 class="text-uppercase">Contact</h5>
+            <ul class="list-unstyled">
+              <li>
+                <a href="akr009020@gmail.com" class="text-dark"
+                  >Akr009020&#64;gmail.com</a
+                >
+              </li>
+              <li><a href="#" class="text-dark">+91-7017377761</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Copyright -->
+      <div class="text-center p-3 bg-dark text-white">
+        © 2024 User Management. All rights reserved.
+      </div>
+    </footer>
+  </body>
+</html>

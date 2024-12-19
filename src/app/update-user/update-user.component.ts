@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';  // Importing the model to for routing
+import { ActivatedRoute, Router } from '@angular/router'; // Importing the model to for routing
 import { BlogsService } from '../blogs.service'; // STEP-3 : Import the service
 
 @Component({
@@ -17,31 +17,35 @@ export class UpdateUserComponent implements OnInit {
     private updateFormBuilder: FormBuilder,
     private blogService: BlogsService,
     private route: ActivatedRoute,
-    private router: Router // Inject Router
+    private router: Router
   ) {
-    this.updateForm = updateFormBuilder.group({
-      //building the form using formbuilder
-      userName: new FormControl(), //in the formbuilder - we are creating a group of form elements
-      userEmail: new FormControl(), //these should be exactly same as your form
+    this.updateForm = this.updateFormBuilder.group({
+      userName: new FormControl(),
+      userEmail: new FormControl(),
       userPassword: new FormControl(),
     });
-  } //FormBuilder help us to build the form
+  }
 
   ngOnInit(): void {
-    this.userId = this.route.snapshot.paramMap.get('id');    // getting the id of the content when redirecting 
+    this.userId = this.route.snapshot.paramMap.get('id'); // getting the id of the content when redirecting
 
-    this.blogService.getUsers().subscribe((data) => { // filtering the user data on the basis of user id
-      this.userList = data[this.userId-1];
-      console.log(this.userId);
-      console.log(this.userList);
+    this.blogService.getUsers().subscribe((data: any[]) => {
+      // filtering the user data on the basis of user id
+      this.userList = data.find((user) => user.id === +this.userId);
+
+      console.log('User ID:', this.userId);
+      console.log('User Data:', this.userList);
 
       // Populate the form fields with the fetched data
       if (this.userList) {
-        this.updateForm.patchValue({ // puting the filterd value back into the form fields
+        this.updateForm.patchValue({
+          // puting the filterd value back into the form fields
           userName: this.userList.username,
           userEmail: this.userList.email,
           userPassword: this.userList.password,
         });
+      } else {
+        console.error('User not found');
       }
     });
   }
@@ -54,20 +58,19 @@ export class UpdateUserComponent implements OnInit {
     }
 
     // Creating the request body
-    const requestBody = {     // creating the request body having updated fields value
-      id: this.userId,
+    const requestBody = {
+      // creating the request body having updated fields value
       username: this.updateForm.value.userName,
       email: this.updateForm.value.userEmail,
       password: this.updateForm.value.userPassword,
     };
-
     // Updating the user using the service
     this.blogService.updateUsers(requestBody, this.userId).subscribe({
       next: (data) => {
         console.log('User updated successfully:', data);
 
-        // Redirect to home page
-        this.router.navigate(['/']);
+        // Redirect to home page on success
+        this.router.navigate(['/dashboard']);
       },
       error: (err) => {
         console.error('Error updating user:', err);

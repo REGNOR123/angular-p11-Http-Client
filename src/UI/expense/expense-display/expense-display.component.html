@@ -1,0 +1,58 @@
+<div class="container">
+  <h1>Expenses</h1>
+  <!-- Export Button -->
+  <button class="btn btn-outline-secondary btn-sm" (click)="exportUserReport()">
+    Export
+  </button>
+  <button
+    class="btn btn-outline-primary btn-sm"
+    [routerLink]="['/dashboard/add-expense']"
+    [queryParams]="{ userId: loggedInUserId }"
+  >
+    Add Expenses
+  </button>
+
+  <!-- Expense Table -->
+  <div class="mt-4">
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th scope="col">No.</th>
+          <th scope="col">Item</th>
+          <th scope="col">Category</th>
+          <th scope="col">Description</th>
+          <th scope="col">Date</th>
+          <th scope="col">Amount (INR)</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let expense of expenseList; let i = index">
+          <th scope="row">{{ i + 1 }}</th>
+          <td>{{ expense.item }}</td>
+          <td>{{ expense.category }}</td>
+          <td>{{ expense.description }}</td>
+          <td>{{ expense.date | date : "mediumDate" }}</td>
+          <td>{{ expense.amount | currency : "INR" }}</td>
+          <td>
+            <button
+              type="button"
+              class="btn btn-outline-secondary btn-sm"
+              [routerLink]="['/dashboard/update-expense', expense.id]"
+              [queryParams]="{ userId: loggedInUserId }"
+            >
+              Update
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline-danger btn-sm"
+              (click)="handleDelete(expense.id)"
+            >
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
